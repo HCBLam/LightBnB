@@ -1,21 +1,21 @@
 
 
--- INSERT INTO users (id, name, email, password)
--- VALUES
-  -- (1, 'Ace Acer', 'ace.acer@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.'),
-  -- (2, 'Bob Bobber', 'bob.bobber@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.'),
-  -- (3, 'Carl Carler', 'carl.carler@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.'),
-  -- (4, 'Dave Davey', 'dave.davey@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.'),
-  -- (5, 'Eric Ericson', 'eric.ericson@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+INSERT INTO users (id, name, email, password)
+VALUES
+  (1, 'Ace Acer', 'ace.acer@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.'),
+  (2, 'Bob Bobber', 'bob.bobber@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.'),
+  (3, 'Carl Carler', 'carl.carler@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.'),
+  (4, 'Dave Davey', 'dave.davey@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.'),
+  (5, 'Eric Ericson', 'eric.ericson@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
 
 
--- INSERT INTO properties (id, title, thumbnail_photo_url, cover_photo_url, cost_per_night, parking_spaces, number_of_bathrooms, number_of_bedrooms, country, street, city, province, active)
--- VALUES
-  -- (1, 'Pembroke Manor', 'pembroke_url', 'pembroke_cover_url', 25000, 40, 15, 25, 'United Kingdom', 'Pembroke Lane', 'Stratford', 'Stratfordshire', True),
-  -- (2, 'Dufferin House', 'dufferin_url', 'dufferin_cover_url', 15000, 30, 10, 20, 'Canada', 'Dufferin Ave', 'Toronto', 'Ontario', True),
-  -- (3, 'Westbrook Lodge', 'westbrook_url', 'westbrook_cover_url', 10000, 20, 5, 10, 'Canada', 'Grange St', 'Etobicoke', 'Ontario', True),
-  -- (4, 'Speed Bump', 'speed_bump_url', 'speed_bump_cover_url', 80000, 20, 7, 12, 'Canada', 'Speed Rd', 'Mississauga', 'Ontario', True),
-  -- (5, 'Gnome Hole', 'gnome_hole_url', 'gnome_hole_cover_url', 50000, 5, 2, 2, 'Canada', 'Gnome Trail', 'Orangeville', 'Ontario', True);
+INSERT INTO properties (id, title, thumbnail_photo_url, cover_photo_url, cost_per_night, parking_spaces, number_of_bathrooms, number_of_bedrooms, country, street, city, province, post_code, active)
+VALUES
+  (1, 'Pembroke Manor', 'pembroke_url', 'pembroke_cover_url', 25000, 40, 15, 25, 'United Kingdom', 'Pembroke Lane', 'Stratford', 'Stratfordshire', 'A1BX2Y', True),
+  (2, 'Dufferin House', 'dufferin_url', 'dufferin_cover_url', 15000, 30, 10, 20, 'Canada', 'Dufferin Ave', 'Toronto', 'Ontario', 'C3DT4X', True),
+  (3, 'Westbrook Lodge', 'westbrook_url', 'westbrook_cover_url', 10000, 20, 5, 10, 'Canada', 'Grange St', 'Etobicoke', 'Ontario', 'E5FQ6R', True),
+  (4, 'Speed Bump', 'speed_bump_url', 'speed_bump_cover_url', 80000, 20, 7, 12, 'Canada', 'Speed Rd', 'Mississauga', 'Ontario', 'G7HP8O', True),
+  (5, 'Gnome Hole', 'gnome_hole_url', 'gnome_hole_cover_url', 50000, 5, 2, 2, 'Canada', 'Gnome Trail', 'Orangeville', 'Ontario', 'I9JL0M', True);
 
 
 
