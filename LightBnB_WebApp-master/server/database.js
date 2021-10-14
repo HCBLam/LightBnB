@@ -84,7 +84,6 @@ exports.getUserWithEmail = getUserWithEmail;
 // const getUserWithId = function(id) {
 //   return Promise.resolve(users[id]);
 // }
-
 exports.getUserWithId = getUserWithId;
 
 
@@ -110,7 +109,6 @@ exports.getUserWithId = getUserWithId;
     });
  };
 
-
 // const addUser =  function(user) {
 //   const userId = Object.keys(users).length + 1;
 //   user.id = userId;
@@ -121,6 +119,12 @@ exports.addUser = addUser;
 
 
 
+
+
+
+
+
+
 /// Reservations
 
 /**
@@ -128,9 +132,26 @@ exports.addUser = addUser;
  * @param {string} guest_id The id of the user.
  * @return {Promise<[{}]>} A promise to the reservations.
  */
-const getAllReservations = function(guest_id, limit = 10) {
-  return getAllProperties(null, 2);
-}
+
+ const getAllReservations = function(guest_id, limit = 10) {
+  return pool
+    .query(`
+      SELECT * FROM reservations
+      WHERE guest_id = $1
+      ORDER BY start_date
+      LIMIT $2
+    `, [guest_id, limit])
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log('Could not find your reservations: ', err.message);
+    });
+ };
+
+// const getAllReservations = function(guest_id, limit = 10) {
+//   return getAllProperties(null, 2);
+// }
 exports.getAllReservations = getAllReservations;
 
 
