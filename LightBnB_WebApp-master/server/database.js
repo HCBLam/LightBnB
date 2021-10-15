@@ -131,7 +131,9 @@ exports.addUser = addUser;
  const getAllReservations = function(guest_id, limit = 10) {
   return pool
     .query(`
-      SELECT * FROM reservations
+      SELECT *
+      FROM reservations
+      JOIN properties ON properties.id = property_id
       WHERE guest_id = $1
       ORDER BY start_date
       LIMIT $2
@@ -211,7 +213,7 @@ exports.getAllReservations = getAllReservations;
   LIMIT $${queryParams.length};
   `;
 
-  console.log(queryString, queryParams);
+  // console.log(queryString, queryParams);
 
   return pool.query(queryString, queryParams)
   .then((res) => res.rows)
@@ -250,22 +252,51 @@ exports.getAllProperties = getAllProperties;
  * @return {Promise<{}>} A promise to the property.
  */
 
-//  const addProperty = function(property) {
-//   return pool
-//     .query(`
-
-//       INSERT INTO properties (name, email, password)
-//       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
-//       RETURNING *;
-//     `, [user.name, user.email, user.password])
-//     .then((result) => {
-//       // console.log('New property added to the database!');
-//       return result.rows;
-//     })
-//     .catch((err) => {
-//       console.log('Could not add new property: ', err.message);
-//     });
-//  }
+ const addProperty = function(property) {
+  return pool
+    .query(`
+      INSERT INTO properties (
+        owner_id,
+        title,
+        description,
+        thumbnail_photo_url,
+        cover_photo_url,
+        cost_per_night,
+        street,
+        city,
+        province,
+        post_code,
+        country,
+        parking_spaces,
+        number_of_bathrooms,
+        number_of_bedrooms
+      )
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+      RETURNING *;
+    `, [
+      property['owner_id'],
+      property['title'],
+      property['description'],
+      property['thumbnail_photo_url'],
+      property['cover_photo_url'],
+      property['cost_per_night'],
+      property['street'],
+      property['city'],
+      property['province'],
+      property['post_code'],
+      property['country'],
+      property['parking_spaces'],
+      property['number_of_bathrooms'],
+      property['number_of_bedrooms']
+    ])
+    .then((result) => {
+      // console.log('New property added to the database!');
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log('Could not add new property: ', err.message);
+    });
+ }
 
  // const addProperty = function(property) {
 //   const propertyId = Object.keys(properties).length + 1;
@@ -273,4 +304,4 @@ exports.getAllProperties = getAllProperties;
 //   properties[propertyId] = property;
 //   return Promise.resolve(property);
 // // }
-// exports.addProperty = addProperty;
+exports.addProperty = addProperty;
